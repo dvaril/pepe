@@ -150,7 +150,7 @@ public class ThresholdFilter extends JDialog implements ImageFilter {
          this.closeAndNotApply();
       }
 
-      this.labelValue.setText(new Integer(this.currentTreshold).toString());
+      this.labelValue.setText(String.valueOf(this.currentTreshold));
       this.checkBoxAutomatic.setSelected(false);
    }
 

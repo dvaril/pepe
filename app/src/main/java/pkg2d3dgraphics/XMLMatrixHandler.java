@@ -28,11 +28,11 @@ public class XMLMatrixHandler {
       Document doc = db.parse(f);
       doc.getDocumentElement().normalize();
       NodeList dimensionXNode = doc.getElementsByTagName("dimensionX");
-      int dimX = new Integer(dimensionXNode.item(0).getTextContent());
+      int dimX = Integer.parseInt(dimensionXNode.item(0).getTextContent());
       NodeList dimensionYNode = doc.getElementsByTagName("dimensionY");
-      int dimY = new Integer(dimensionYNode.item(0).getTextContent());
+      int dimY = Integer.parseInt(dimensionYNode.item(0).getTextContent());
       NodeList coefficientNode = doc.getElementsByTagName("coefficient");
-      Float coefficient = new Float(coefficientNode.item(0).getTextContent());
+      float coefficient = Float.parseFloat(coefficientNode.item(0).getTextContent());
       NodeList normalisedNode = doc.getElementsByTagName("normalised");
       String norm = normalisedNode.item(0).getTextContent();
       boolean nor = false;
@@ -58,7 +58,7 @@ public class XMLMatrixHandler {
                      throw new IOException("Bad Input format of XML file, Too much data.");
                   }
 
-                  this.matrix.set(x, y, new Integer(cell.getTextContent()));
+                  this.matrix.set(x, y, Integer.parseInt(cell.getTextContent()));
                   y++;
                }
             }
